@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:motion="http://schemas.android.com/tools">
+
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@+id/start"
+        app:duration="4150"
+        app:motionInterpolator="cubic(0.28,0.66,0.49,0.98)">
+        <KeyFrameSet>
+            <KeyAttribute
+                android:alpha="0"
+                app:framePosition="20"
+                motion:motionTarget="@+id/background_space" />
+            <KeyPosition
+                app:framePosition="40"
+                app:keyPositionType="pathRelative"
+                app:motionTarget="@+id/rocket"
+                motion:percentY="0.45" />
+            <KeyPosition
+                app:framePosition="40"
+                app:keyPositionType="pathRelative"
+                app:motionTarget="@+id/plane"
+                app:percentY="0.35" />
+            <KeyAttribute
+                android:scaleX="1.8"
+                android:scaleY="1.8"
+                app:framePosition="40"
+                app:motionTarget="@+id/rocket" />
+            <KeyAttribute
+                android:alpha="0"
+                app:framePosition="10"
+                app:keyPositionType="parentRelative"
+                app:motionTarget="@+id/launch_button" />
+            <KeyAttribute
+                android:scaleX="1.3"
+                android:scaleY="1.3"
+                app:framePosition="60"
+                app:motionTarget="@+id/plane" />
+        </KeyFrameSet>
+        <OnClick app:targetId="@+id/launch_button" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start" />
+
+    <ConstraintSet android:id="@+id/end">
+
+        <Constraint
+            android:id="@+id/sun"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/moon"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="48dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.1" />
+
+        <Constraint
+            android:id="@+id/background_space"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+
+        <Constraint
+            android:id="@+id/background_earth"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Constraint
+            android:id="@+id/planet2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginBottom="400dp"
+            android:src="@drawable/ic_circle"
+            android:tint="#B91C01"
+            app:layout_constraintBottom_toBottomOf="@id/background_space"
+            app:layout_constraintStart_toStartOf="@id/background_space" />
+
+        <Constraint
+            android:id="@+id/planet1"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginEnd="72dp"
+            android:src="@drawable/ic_circle"
+            android:tint="#08E608"
+            app:layout_constraintVertical_bias="0.7"
+            app:layout_constraintTop_toTopOf="@id/background_space"
+            app:layout_constraintBottom_toBottomOf="@id/background_space"
+            app:layout_constraintEnd_toEndOf="@id/background_space" />
+
+        <Constraint
+            android:id="@+id/plane"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginBottom="150dp"
+            android:rotation="90"
+            android:src="@drawable/ic_airplanemode"
+            android:tint="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/background_space"
+            app:layout_constraintStart_toEndOf="@id/background_space" />
+
+        <Constraint
+            android:id="@+id/rocket"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="48dp"
+            android:rotation="-45"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/launch_button"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginBottom="72dp"
+            android:alpha="0"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+
+        <Constraint
+            android:id="@+id/star2"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="48dp"
+            android:rotation="-45"
+            android:tint="@color/white"
+            app:layout_constraintStart_toStartOf="@id/sun"
+            app:layout_constraintTop_toBottomOf="@id/sun" />
+
+        <Constraint
+            android:id="@+id/star1"
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="56dp"
+            android:rotation="100"
+            android:src="@drawable/ic_star"
+            android:tint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/planet2" />
+
+        <Constraint
+            android:id="@+id/bg_horizon"
+            android:layout_height="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent" />
+
+        <Constraint
+            android:id="@+id/cloud1"
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="48dp"
+            app:layout_constraintTop_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+
+        <Constraint
+            android:id="@+id/cloud2"
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintTop_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+
+        <Constraint
+            android:id="@+id/cloud3"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="parent" />
+
+    </ConstraintSet>
+</MotionScene>
